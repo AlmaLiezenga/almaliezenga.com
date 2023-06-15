@@ -3,8 +3,8 @@
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	color: #151515;
-	background-color:#fefefe;
+	color: #271622;
+	background-color:#F8F1FF;
 	margin: auto;
 	max-width: 1140px;
 }
@@ -18,7 +18,7 @@ h1 {
 
 h2 {
 	font-family: 'Merriweather', serif;
-	font-size: 150%;
+	font-size: 170%;
 	margin: 0rem 0 0.5em;
 }
 
@@ -32,12 +32,8 @@ li {
 	line-height: 1.5;
 }
 
-a:link {
-	color: #f04;
-}
-
-a:hover, a:visited  {
-	color: #7209b7;
+a {
+	color: #1B998B;
 }
 
 .container {
