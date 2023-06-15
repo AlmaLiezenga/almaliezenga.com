@@ -10,14 +10,14 @@ body {
 }
 
 h1 {
-	font-family: 'Georgia', serif;
+	font-family: Times, "Times New Roman", Georgia, serif;
 	font-size: 220%;
 	/* margin-bottom: -10px; */
 	margin: 0 0 0.2em;
 }
 
 h2 {
-	font-family: 'Georgia', serif;
+	font-family: Times, "Times New Roman", Georgia, serif;
 	font-size: 170%;
 	margin: 0rem 0 0.5em;
 }
