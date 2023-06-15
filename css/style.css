@@ -1,0 +1,199 @@
+/* Created by Rob C. de Wit 2021 */
+/* Feel free to use this CSS under the Creative Commons Attribution-ShareAlike 4.0 International License. */
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #151515;
+	background-color:#fefefe;
+	margin: auto;
+	max-width: 1140px;
+}
+
+h1 {
+	font-family: 'Merriweather', serif;
+	font-size: 300%;
+	/* margin-bottom: -10px; */
+	margin: 0 0 0.2em;
+}
+
+h2 {
+	font-family: 'Merriweather', serif;
+	font-size: 150%;
+	margin: 0rem 0 0.5em;
+}
+
+p {
+	margin-bottom: 1em;
+	line-height: 1.5;
+}
+
+li {
+	margin-bottom: 0.2rem;
+	line-height: 1.5;
+}
+
+a:link {
+	color: #f04;
+}
+
+a:hover, a:visited  {
+	color: #7209b7;
+}
+
+.container {
+	text-align: left;
+	margin: 5%;
+}
+
+.column-header {
+	text-align: center;
+	margin-bottom: 3.5em;
+}
+
+.about-entry {
+	margin-bottom: 2.5em;
+}
+
+.highlight {
+	margin-top: 3rem;
+	padding: 1rem;
+	background-color:#eaeaea;
+	border-radius: 8px;
+}
+
+.blogpost {
+	max-width: 800px;
+	margin: auto;
+}
+
+.blogpost h2 {
+	margin-top: 2rem;
+}
+
+.blogpost .breadcrumbs {
+	font-size: 90%;
+}
+
+.blogpost .header {
+	margin-bottom: 2rem;
+}
+
+.blogpost .header .keywords {
+	font-style: italic;
+	color: #a0a0a0;
+}
+
+.blogpost span.italic {
+	font-style: italic;
+}
+
+.blogpost .focuscontent {
+	padding-left: 2rem;
+}
+
+.blogpost .illustration {
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.blogpost .illustration img {
+	width: 80%;
+	border-radius: 8px;
+}
+
+.blogpost .illustration .subtext {
+	display: block;
+	font-style: italic;
+	font-size: 85%;
+}
+
+.blogpost .banner {
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.blogpost .banner img {
+	width: 120%;
+	border-radius: 8px;
+	margin-left: -10%;
+}
+
+.blogpost .banner .subtext {
+	display: block;
+	font-style: italic;
+	font-size: 85%;
+}
+
+.blogpost .bio {
+	margin-top: 3rem;
+	padding: 1rem;
+	background-color:#eaeaea;
+	border-radius: 8px;
+}
+
+@media only screen and (min-width: 600px) {
+	.blogpost .bio {
+		display: flex;
+	}
+
+	.blogpost .bio .description {
+		padding-left: 1rem;
+	}
+
+	.blogpost .bio .photograph img{
+		width: 200px;
+		border-radius: 8px;
+	}
+
+}
+
+@media only screen and (max-width: 600px) {
+
+	.blogpost .bio .photograph{
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.blogpost .bio .photograph img{
+		width: 100%;
+		max-height: 250px;
+		object-fit: cover;
+		border-radius: 8px;
+	}
+}
+
+.blogpost .bio .description h2{
+	margin: 0;
+}
+
+@media only screen and (min-width: 1140px) {
+	.container {
+		margin: 3%
+	}
+
+	.container#bio {
+		display: flex;
+	}
+
+	.column-header {
+			flex: 0 0 30%;
+			margin-right: 4em;
+	}
+
+	.column-details {
+		flex: 0 0 600px;
+	}
+}
+
+#profile-picture {
+	width: 100%;
+	max-width: 200px;
+	margin: 0 0 1.5em;
+	border-radius: 8px;
+}
+
+#nb-recruiters {
+	font-style: italic;
+}
