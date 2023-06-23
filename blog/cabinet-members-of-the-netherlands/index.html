@@ -5,8 +5,8 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Rob de Wit">
-		<title>A boring truth: your meeting needs an agenda</title>
+		<meta name="author" content="Alma Liezenga">
+		<title>Cabinet Members of the Netherlands: a dataset</title>
 		<link rel="stylesheet" href="../../css/style.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,9 +22,8 @@
 
 		<!-- Metadata -->
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta name="description" content="Having an agenda, note taker, and
-	  concrete actions allowed a bunch of twenty-somethings to have concise and
-	  effective meetings.">
+	  <meta name="description" content="Using basic web scraping on Wikipedia, 
+		  I extracted information about all cabinet members of the Netherlands, ever.">
 	  <meta name="keywords" content="Way of working, meetings, agenda">
 		<meta name="publish_date" property="og:publish_date"
 		content="2021-11-15">
@@ -32,27 +31,23 @@
 
 	  <!-- Open graph meta tags -->
 	  <meta property="og:url"
-	  content="https://robdewit.nl/blog/a-boring-truth-your-meeting-needs-an-agenda/">
+	  content="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/">
 	  <meta property="og:type" content="blog">
-	  <meta property="og:title" content="A boring truth: your meeting needs an
-	  agenda">
-	  <meta property="og:site_name" content="Rob de Wit">
-	  <meta property="og:description" content="Having an agenda, note taker, and
-	  concrete actions allowed a bunch of twenty-somethings to have concise and
-	  effective meetings.">
+	  <meta property="og:title" content="Cabinet Members of the Netherlands: a dataset">
+	  <meta property="og:site_name" content="Alma Liezenga">
+	  <meta property="og:description" content="Using basic web scraping on Wikipedia, 
+		  I extracted information about all cabinet members of the Netherlands, ever.">
 	  <meta property="og:image"
-	  content="https://robdewit.nl/blog/a-boring-truth-your-meeting-needs-an-agenda/img/og-image.jpg">
+	  content="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/img/og-image.jpg">
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:domain" content="robdewit.nl">
+		<meta property="twitter:domain" content="almaliezenga.com">
 		<meta property="twitter:url"
-		content="https://robdewit.nl/blog/a-boring-truth-your-meeting-needs-an-agenda/index.html">
-		<meta name="twitter:title" content="A boring truth: your meeting needs
-		an agenda">
-		<meta name="twitter:description" content="Having an agenda, note taker,
-		and concrete actions allowed a bunch of twenty-somethings to have
-		concise and effective meetings.">
+		content="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/index.html">
+		<meta name="twitter:title" content="Cabinet Members of the Netherlands: a dataset">
+		<meta name="twitter:description" content="Using basic web scraping on Wikipedia, 
+		  I extracted information about all cabinet members of the Netherlands, ever.">
 		<meta name="twitter:image" content="">
 
 	</head>
@@ -62,157 +57,43 @@
 				<span class="breadcrumbs"><a href="../../index.html">&lt&lt Back
 				to homepage</a></span>
 				<div class="header">
-					<h2 class="publishdate">2021-11-15</h2>
-					<h1 class="title">A boring truth: your meeting needs an
-					agenda</h1>
+					<h2 class="publishdate">2022-02-04</h2>
+					<h1 class="title">Cabinet Members of the Netherlands: a dataset</h1>
 
-					<span class="keywords">Keywords: way of working, meetings,
-					agenda, personal pet peeves</span>
+					<span class="keywords">Keywords: government, The Netherlands, cabinet, ministers, 
+					state secretaries</span>
 				</div>
 
-				<p>While I was studying at university I learned a lot of things.
-				Many of those things have been of little use after passing the
-				exam and have thus mostly been forgotten. If you asked me to
-				name Porter's 5 forces or to explain the abstract factory design
-				pattern, I'd probably find a good excuse to get out of our
-				conversation. I think many people agree that most useful
-				knowledge for your work is picked up on the job, whereas
-				schoolbook knowledge doesn't translate very well to the real
-				world. There is however one thing that I learned while studying
-				that I would love to see more of at work.</p>
+				<p>After the longest formation period ever (approximately 300 days) the Netherlands 
+				has a government once again. Sworn in on January 10th, the fourth Rutte cabinet features 
+				several new positions (like a minister for climate and energy), a fair amount of women
+				(14 out of 29) and the youngest state secretary in 48 years. Since the (nearly) 50% of women 
+				was a first for Dutch politics I became interested in the long line of the former Dutch cabinet 
+				members. Since I am trying to learn more about web scraping and data visualization I decided 
+				to create a dataset of all Dutch members of cabinet ever (or since 1877).</p>
 
-				<p>During my 7 (oops) years at university I organised a lot of
-				events, ranging from conferences to film nights. Most of these
-				events were organised in collaboration with fellow students at
-				the behest of our study association. While there was plenty of
-				time for mucking about, having fun, and drinking a few beers,
-				the meetings we had were generally very well structured. Having
-				an agenda, note taker, and concrete actions allowed a bunch of
-				twenty-somethings to have concise and effective meetings.
-				Picture my surprise when it turned out that the grown-up world
-				rarely adheres to these simple conventions.</p>
+				<p>Creating this dataset was quite an interesting process, from setting the gender of all 
+				members before 1952 to male to discovering cabinet members that had no less than four positions. 
+				Truly, it was quite the project and it involved way too much manual work. If you want to see the 
+				specifics, feel free to look at my code on GitHub. </p>
+				
+				<p>And then came the fun part: data visualization! I thought the ideas would come up in my head 
+				on a whim but to be honest, they simply didn’t. Or they did, but it just didn’t work out. I made 
+				a simple plot of the percentage of women in cabinets but further than that I didn’t leverage my dataset 
+				as much as I wanted to. I thought about it for a few weeks but I can’t come up with a way to visualize 
+				the data in a meaningful way. Perhaps in the future I should start from a why instead of: let’s gather 
+				this pile of data and see where it takes us! </p>
+				
+				<p>So perhaps you know what to do with it? I decided that instead of sitting on it for even longer I 
+				should finish up my work and publish it to see if anyone else has cool ideas for using the data. I think 
+				there is a cool data visualisation in there somewhere. I have added the links to CSV and Excel files and
+				code below, I’m sure there are still some mistakes in the file (manually checking all 1106 people was a 
+				bridge too far). So I would say good luck, delve into some data and see what you can find in this pile of 
+				information! </p>
+				
+				<p>P.S.: In case anyone knows more about whether this data could be licensed under CC (I wasn’t sure 
+				because it is quite factual) please feel free to reach out to me. </p>
 
-				<p>Perhaps the following situation sounds familiar to you.
-				There's something your team needs to discuss and so you schedule
-				a meeting sometime next week — try finding a time slot that
-				works for everyone on a shorter notice. The meeting arrives and
-				after talking about everyone's weekend you get to the topic at
-				hand. Somewhere along the way you get sidetracked into a
-				disagreement on details, and ten minutes before your next
-				meeting it turns out you haven't gotten to the material decision
-				yet. This prompts you to rush through the issue that actually
-				needed discussing. As it turns out there was little to discuss
-				in the first place, and half of the people there need not have
-				attended. Somehow you still spent an hour.</p>
-
-				<p>With everyone working remotely this situation has become even
-				more frequent. What used to be a 5 minute check-in at your
-				colleague's desk has turned into a standard 30-minute meeting.
-				Some basic meeting etiquette can help mitigate the inevitable
-				frustration that arises from this. Moreover, it provides a solid
-				boost to your productivity.</p>
-
-				<p>Here's the 3 must haves I propose for your meetings:</p>
-
-				<div class="focuscontent">
-					<h3>1. Have an agenda</h3>
-
-					<p>Agreeing upon an agenda allows you to identify what
-					everyone wants to get out of the meeting. If you share the
-					agenda in advance it allows invitees to see whether they
-					have anything to contribute to the discussion. Additionally,
-					it allows us to "park" discussions that distract from the
-					topic at hand and contain them in a dedicated agenda
-					item.</p>
-
-					<p>A generic template can be as easy as follows:</p>
-
-					<ol>
-						<li>Check in: discuss what's on everyone's mind and if
-						there's something worth sharing;</li>
-						<li>Setting the agenda: add or remove items that the
-						attendees want to discuss;</li>
-						<li>Previous actions: discuss the outcomes of previous
-						actions and re-prioritise actions that have fallen by
-						the wayside;</li>
-						<li>[Material points]: the point of the meeting;</li>
-						<li>Any other business (A.O.B.): points that came up
-						throughout the meeting and are still worth
-						discussing;</li>
-						<li>Check out: final comments, questions, and remarks by
-						attendees.</li>
-					</ol>
-
-					<p>Of course you can tweak it wherever you feel necessary.
-					Find a structure that works for your team and adjust it on
-					the fly. The important part is having a common ground that
-					everyone agrees upon, not the specifics of the agenda
-					items.</p>
-
-					<h3>2. Have someone enforce the agenda</h3>
-
-					<p>I know, I know... We are all adults and no one likes a
-					chair waving their hammer around. Regardless, it helps to
-					have someone that keeps an eye on the clock and cuts off
-					discussions when they are going sideways — or worse: in
-					circles. Generally this will be the person who calls the
-					meeting, but be open to other people as well. Especially
-					when the organiser has a high stake in the discussion, it
-					can be worthwhile to have a somewhat impartial
-					"referee".</p>
-
-					<h3>3. Have someone take notes</h3>
-
-					<p>Find a volunteer (or "volunteer") to take notes during
-					the meeting. You can make the notes as elaborate as you
-					want, but make sure to at least record decisions and
-					actions. Actions should be <a
-					href="https://en.wikipedia.org/wiki/SMART_criteria"
-					target="_blank" rel="noreferrer">as SMART as possible</a>,
-					and at least contain an assignee, concrete outcome, and
-					deadline. The action items (AIs) can generally be discussed
-					in a follow-up meeting, or can be input for your issue
-					tracker. Please note that <i>"AI Everyone: think
-					about..."</i> results in everyone saying they thought about
-					it and no one producing any ideas.</p>
-				</div>
-
-				<h2>Conclusion</h2>
-				<p>With these three must haves I think your meetings can be far
-				more effective. It's a strange world when a committee of
-				volunteering students can be more concise and structured than a
-				team of well-paid professionals. Let it be said that all of this
-				comes from someone who is not naturally structured. In classic
-				colour tests I generally come up as "red", with "blue"
-				behaviours being a coping mechanism for stress rather than a
-				natural inclination. Nevertheless, I have found that adhering to
-				the guidelines above has a positive effect on what I get out of
-				my meetings. Bonus: your colleagues will thank you for it as
-				well.</p>
-
-				<div class="bio">
-					<div class="photograph">
-						<img src="../../images/photo.jpg" alt="This is me, Rob!"
-						/>
-					</div>
-					<div class="description">
-						<h2>Rob de Wit</h2>
-						<p>I like working with data and tech to help people
-						solve problems. Although I am comfortable with the
-						"harder" aspects of data engineering and data science, I
-						firmly believe that tech shouldn't be self-serving. What
-						I like doing best is connecting with people, sharing
-						knowledge, and discovering how data can help improve
-						life and work.</p>
-						<p>Most recently I worked as a developer advocate at <a
-						href="https://iterative.ai/" target="_blank"
-						rel="noreferrer">Iterative</a>. Right now I am open to
-						new opportunities.</p>
-						<span><a href="https://www.linkedin.com/in/rcdewit/"
-						target="_blank"
-						rel="noreferrer">linkedin.com/in/rcdewit</a></span>
-					</div>
-				</div>
 			</div>
 		</div>
 	</body>
