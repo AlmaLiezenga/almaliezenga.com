@@ -1,12 +1,12 @@
-<!-- Created by Rob C. de Wit 2021 -->
+<!-- HTML code outline created by Rob C. de Wit 2021 -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Rob de Wit">
-		<title>A boring truth: your meeting needs an agenda</title>
+		<meta name="author" content="Alma Liezenga">
+		<title>Top 2000: web scraping, interactive plots & holiday fun</title>
 		<link rel="stylesheet" href="../../css/style.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +18,14 @@
 		rel="stylesheet">
 		<link rel="icon" href="data:image/svg+xml,<svg
 		xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text
-		y=%22.9em%22 font-size=%2290%22>🐘</text></svg>">
+		y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
 
 		<!-- Metadata -->
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="Having an agenda, note taker, and
 	  concrete actions allowed a bunch of twenty-somethings to have concise and
 	  effective meetings.">
-	  <meta name="keywords" content="Way of working, meetings, agenda">
+	  <meta name="keywords" content="Music, web scraping, data visualization">
 		<meta name="publish_date" property="og:publish_date"
 		content="2021-11-15">
 
@@ -34,14 +34,13 @@
 	  <meta property="og:url"
 	  content="https://robdewit.nl/blog/a-boring-truth-your-meeting-needs-an-agenda/">
 	  <meta property="og:type" content="blog">
-	  <meta property="og:title" content="A boring truth: your meeting needs an
-	  agenda">
-	  <meta property="og:site_name" content="Rob de Wit">
+	  <meta property="og:title" content="Top 2000: web scraping, interactive plots & holiday fun">
+	  <meta property="og:site_name" content="Alma Liezenga">
 	  <meta property="og:description" content="Having an agenda, note taker, and
 	  concrete actions allowed a bunch of twenty-somethings to have concise and
 	  effective meetings.">
 	  <meta property="og:image"
-	  content="https://robdewit.nl/blog/a-boring-truth-your-meeting-needs-an-agenda/img/og-image.jpg">
+	  content="https://almaliezenga.com/blog/top-2000/header.jpg">
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image">
@@ -63,11 +62,9 @@
 				to homepage</a></span>
 				<div class="header">
 					<h2 class="publishdate">2021-11-15</h2>
-					<h1 class="title">A boring truth: your meeting needs an
-					agenda</h1>
+					<h1 class="title">Top 2000: web scraping, interactive plots & holiday fun</h1>
 
-					<span class="keywords">Keywords: way of working, meetings,
-					agenda, personal pet peeves</span>
+					<span class="keywords">Keywords: music, web scraping, data visualization, interactive data</span>
 				</div>
 
 				<p>Ever since I met my current partner the Top 2000 has been an integral part of my holiday season. 
@@ -77,36 +74,36 @@
 				Bohemian Rhapsody, which is, therefore, the song that ushers in the new year in most Dutch living rooms. </p>
 
 				<p>At first I didn’t care much for listening to 50%+ songs I didn’t know nor liked, with a painfully high 
-				level of 70s and 80s rock and very little hiphop (or songs from after 2000 for that matter, my desperate 
-				attempt to vote Kanye West, Beyoncé and Ariana Grande into the list failed miserably with only 6 out of 
+				level of 70s and 80s rock and very little hip hop (or songs from after 2000 for that matter, my desperate 
+				attempt to vote Kanye West, Beyoncé, and Ariana Grande into the list failed miserably with only 6 out of 
 				my 35 selections actually making the cut). But I’m starting to understand the fun of not having to choose 
-				what to listen to for a week, being annoyed at the old fashioned choices that do make the cut and increasingly 
+				what to listen to for a week, being annoyed at the old-fashioned choices that do make the cut and increasingly 
 				recognizable songs as the week progresses.</p>
 				
 				<h3>Enter: data visualisation</h3>
 
-				<p>So in the few days between Christmas and New Year’s I decided to practice my data visualisation skills. 
+				<p>So in the few days between Christmas and New Year’s I decided to practice my data visualization skills. 
 				I wanted to try out plotly’s interactive plots and I was also eager to dip my toes into some web scraping. 
-				So, here we are: some not very coherent visualisations of the Top 2000, not necessarily to support any 
+				So, here we are: some not so coherent visualizations of the Top 2000, not necessarily to support any 
 				coherent conclusion (though it did confirm my presumed bias towards 70’s and 80’s rock) but just because 
-				it’s fun. All code and data can be found on Github.</p>
+				it’s fun. All code and data can be found on GitHub.</p>
 				
 				<p>I would highly recommend viewing the visualisations on a laptop or tablet instead of a smartphone. </p>
 				
 				<h3>Counting Genres & Supergenres</h3>
-				<p>With the excel sheet of the Top 2000 that NPO Radio 2 provides it was easy enough to create a small 
-				interactieve visualisation of the songs, artists and release years. But I thought one more dimension would 
+				<p>With the Excel sheet of the Top 2000 that NPO Radio 2 provides it was easy enough to create a small 
+				interactive visualization of the songs, artists, and release years. But I thought one more dimension would 
 				add a lot of value: the musical genre. To get the genre of each song I used [Last.fm](http://Last.fm). I 
 				wrote a pretty small loop and a few functions which were able to create a hyperlink for each artist that 
 				would lead to their page on this website, which lists the genres of their music! With some usage of the 
-				BeautifulSoup package I was able to extract this data from the html of the page. By simply counting the 
+				BeautifulSoup package I was able to extract this data from the HTML of the page. By simply counting the 
 				number of songs in each of these genres I was able to create a fun plot, shown below (also visible at: ) 
-				Note that songs are counted double (or triple, or quadruple, or quintuple) as they are mostly tagged as 
+				Note that songs are counted double (or triple, quadruple, or quintuple) as they are mostly tagged as 
 				more than one genre. </p>
 
 				<p>These genres were quite specific in some cases, which is fun to look through but maybe not very descriptive. 
 				Therefore, I generalized the genres to several supergenres, combining a few lists by Multimediaeval and adding 
-				additional genres were necessary (for example for ‘nederhop’, ‘nederpop’ and ‘gabber’). To this end I only used 
+				additional genres were necessary (for example ‘nederhop’, ‘nederpop’, and ‘gabber’). To this end I only used 
 				the first genre of each song (or the second genre if the first one didn’t have a supergenre). This resulted in 
 				the graph shown below (also visible at: ). </p>
 				
