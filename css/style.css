@@ -1,10 +1,10 @@
-/* Created by Rob C. de Wit 2021 */
+/* Originally created by Rob C. de Wit 2021, altered by Alma Liezenga 2023 */
 /* Feel free to use this CSS under the Creative Commons Attribution-ShareAlike 4.0 International License. */
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	color: #271622;
-	background-color:#F8F1FF;
+	color: #F8F1FF;
+	background-color: #271622;
 	margin: auto;
 	max-width: 1140px;
 }
