@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Ice Cream Picker</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+
+    <py-config>
+      packages = ["osmnx", "geopandas", "networkx"]
+    </py-config>
+
+    <py-script>
+      import osmnx as ox
+      import geopandas as gpd
+      import networkx as nx 
+      G = ox.graph.graph_from_place('Bunnik, Utrecht, The Netherlands', simplify=True)
+      ox.plot_graph(G, node_size=0, edge_linewidth=0.5)
+
+    </py-script>
+
+    <div id="input" style="margin: 20px;">
+      Select your 🍨 flavour: <br/>
+      <input type="radio" id="all" name="flavour" value="ALL">
+      <label for="all"> All 🍧</label>
+      <input type="radio" id="chocolate" name="flavour" value="COCOA">
+      <label for="chocolate"> Chocolate 🍫</label>
+      <input type="radio" id="cherry" name="flavour" value="CHERRIES">
+      <label for="cherry"> Cherries 🍒</label>
+      <input type="radio" id="berries" name="flavour" value="BERRY">
+      <label for="berries"> Berries 🍓</label>
+      <input type="radio" id="cheese" name="flavour" value="CHEESE">
+      <label for="cheese"> Cheese 🧀</label>
+      <input type="radio" id="peanut" name="flavour" value="PEANUT">
+      <label for="peanut"> Peanut 🥜</label>
+    </div>
+
+    <py-repl>
+      ice_data
+    </py-repl>
+
+    <div id="graph-area"></div>
+  </body>
+</html>
