@@ -79,54 +79,61 @@
 				<h3>Enter: data visualisation</h3>
 
 				<p>So in the few days between Christmas and New Year’s I decided to practice my data visualization skills. 
-				I wanted to try out plotly’s interactive plots and I was also eager to dip my toes into some web scraping. 
-				So, here we are: some not so coherent visualizations of the Top 2000, not necessarily to support any 
+				I wanted to try out Plotly’s interactive plots and I was also eager to dip my toes into some web scraping. 
+				So, here we are: some not-so-coherent visualizations of the Top 2000, not necessarily to support any 
 				coherent conclusion (though it did confirm my presumed bias towards 70’s and 80’s rock) but just because 
-				it’s fun. All code and data can be found on GitHub.</p>
+				it’s fun. All code and data can be found on <a href="https://github.com/AlmaLiezenga/Top2000">GitHub</a>.</p>
 				
-				<p>I would highly recommend viewing the visualisations on a laptop or tablet instead of a smartphone. </p>
+				<p>I would highly recommend viewing the visualizations on a laptop or tablet instead of a smartphone. </p>
 				
 				<h3>Counting Genres & Supergenres</h3>
 				<p>With the Excel sheet of the Top 2000 that NPO Radio 2 provides it was easy enough to create a small 
 				interactive visualization of the songs, artists, and release years. But I thought one more dimension would 
-				add a lot of value: the musical genre. To get the genre of each song I used [Last.fm](http://Last.fm). I 
+				add a lot of value: the musical genre. To get the genre of each song I used <a href="Last.fm">http://Last.fm</a>. I 
 				wrote a pretty small loop and a few functions which were able to create a hyperlink for each artist that 
 				would lead to their page on this website, which lists the genres of their music! With some usage of the 
 				BeautifulSoup package I was able to extract this data from the HTML of the page. By simply counting the 
-				number of songs in each of these genres I was able to create a fun plot, shown below (also visible at: ) 
+				number of songs in each of these genres I was able to create a fun plot, shown below (<a href="https://almaliezenga.com/blog/top-2000/visualization1.html">also visible here</a>) 
 				Note that songs are counted double (or triple, quadruple, or quintuple) as they are mostly tagged as 
 				more than one genre. </p>
+
+				<iframe src="https://almaliezenga.com/blog/top-2000/visualization1.html" width="100%" 
+					height="500" frameborder="0" scrolling="no"></iframe>
 
 				<p>These genres were quite specific in some cases, which is fun to look through but maybe not very descriptive. 
 				Therefore, I generalized the genres to several supergenres, combining a few lists by Multimediaeval and adding 
 				additional genres were necessary (for example ‘nederhop’, ‘nederpop’, and ‘gabber’). To this end I only used 
 				the first genre of each song (or the second genre if the first one didn’t have a supergenre). This resulted in 
-				the graph shown below (also visible at: ). </p>
+				the graph shown below (<a href="https://almaliezenga.com/blog/top-2000/visualization4.html">also visible here</a>). </p>
 
-				<iframe src="https://almaliezenga.com/blog/top-2000/visualization1.html" width="100%" 
-					height="500" frameborder="0" scrolling="no"></iframe>
-				<iframe src="https://almaliezenga.com/blog/top-2000/visualization2.html" width="100%" 
-					height="500" frameborder="0" scrolling="no"></iframe>
-				<iframe src="https://almaliezenga.com/blog/top-2000/visualization3.html" width="100%" 
-					height="500" frameborder="0" scrolling="no"></iframe>
 				<iframe src="https://almaliezenga.com/blog/top-2000/visualization4.html" width="100%" 
 					height="500" frameborder="0" scrolling="no"></iframe>
+				
+				
+				
+				
 				
 				<h3>Visualising all songs</h3>
 
 				<p>When I started out I had already created one plot which I liked the look of: a scatterplot with all songs 
 				as dots. But it needed some more content. With the supergenres I had the third variable I was looking for. 
-				Try out this nice plot (also visible at: )</p>
+				Try out this nice plot (<a href="https://almaliezenga.com/blog/top-2000/visualization2.html"also visible here</a>)</p>
+
+				<iframe src="https://almaliezenga.com/blog/top-2000/visualization2.html" width="100%" 
+					height="500" frameborder="0" scrolling="no"></iframe>
 				
 				<p>What I don’t love is that the supergenres are not as generalized as I would like for this type of plot. 
 				I therefore created the ‘supersupergenres’ which generalized over the supergenres once more to give a slightly 
-				more intuitive sense of the data. I must admit though that my musical knowledge is limited so please don’t 
-				shame me for the poor combinations of genres. </p>
+				more intuitive sense of the data (<a href="https://almaliezenga.com/blog/top-2000/visualization3.html">also visible here</a>). I must admit though that my musical knowledge is limited 
+				so some of the groupings might be atypical. </p>
 
+				<iframe src="https://almaliezenga.com/blog/top-2000/visualization3.html" width="100%" 
+					height="500" frameborder="0" scrolling="no"></iframe>
+				
 				<p>A few shortcomings are of course that a genre per song instead of per artist might have been more descriptive 
 				but I couldn’t find a suitable website for that purpose. I also would have liked to base the supergenre on all 4 
 				or 5 genres instead of only the first one, but this got very complicated very fast. Some artists were also not 
-				listed on last.fm, which I partly manually fixed but I’m sure the information on Dutch artists is slightly more 
+				listed on <a href="Last.fm">http://Last.fm</a>, which I partly manually fixed but I’m sure the information on Dutch artists is slightly more 
 				limited. The list of subgenres vs supergenres is also quite limited but I tried to really get most out. </p>
 				
 				<p>I hope you enjoy these plots and can find your own song picks in them (and agree with their genre!). Happy New Year!</p>
