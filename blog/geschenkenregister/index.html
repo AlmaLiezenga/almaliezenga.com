@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="Alma Liezenga">
-		<title>Cabinet Members of the Netherlands: a dataset</title>
+		<title>Het geschenkenregister gevisualiseerd</title>
 		<link rel="stylesheet" href="../../css/style.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,32 +22,31 @@
 
 		<!-- Metadata -->
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta name="description" content="Using basic web scraping on Wikipedia, 
-		  I extracted information about all cabinet members of the Netherlands, ever.">
-	  <meta name="keywords" content="The Netherlands, government, cabinet">
+	  <meta name="description" content="Het visualiseren van het geschenkenregister 
+		  van leden van de tweede kamer.">
 		<meta name="publish_date" property="og:publish_date"
-		content="2022-02-04">
+		content="2023-11-13">
 
 
 	  <!-- Open graph meta tags -->
 	  <meta property="og:url"
-	  content="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/">
+	  content="https://almaliezenga.com/blog/geschenkenregister/">
 	  <meta property="og:type" content="blog">
-	  <meta property="og:title" content="Cabinet Members of the Netherlands: a dataset">
+	  <meta property="og:title" content="Het geschenkenregister gevisualiseerd">
 	  <meta property="og:site_name" content="Alma Liezenga">
-	  <meta property="og:description" content="Using basic web scraping on Wikipedia, 
-		  I extracted information about all cabinet members of the Netherlands, ever.">
+	  <meta property="og:description" content="Het visualiseren van het geschenkenregister 
+		  van leden van de tweede kamer.">
 	  <meta property="og:image"
-	  content="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/header.jpeg">
+	  content="https://almaliezenga.com/blog/geschenkenregister/header.jpeg">
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta property="twitter:domain" content="almaliezenga.com">
 		<meta property="twitter:url"
-		content="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/index.html">
-		<meta name="twitter:title" content="Cabinet Members of the Netherlands: a dataset">
-		<meta name="twitter:description" content="Using basic web scraping on Wikipedia, 
-		  I extracted information about all cabinet members of the Netherlands, ever.">
+		content="https://almaliezenga.com/blog/geschenkenregister/index.html">
+		<meta name="twitter:title" content="Het geschenkenregister gevisualiseerd">
+		<meta name="twitter:description" content="Het visualiseren van het geschenkenregister 
+		  van leden van de tweede kamer.">
 		<meta name="twitter:image" content="">
 
 	</head>
@@ -57,46 +56,36 @@
 				<span class="breadcrumbs"><a href="../../index.html">&lt&lt Back
 				to homepage</a></span>
 				<div class="header">
-					<h2 class="publishdate">2022-02-04</h2>
-					<h1 class="title">Cabinet Members of the Netherlands: a dataset</h1>
-
-					<span class="keywords">Keywords: government, The Netherlands, cabinet, ministers, 
-					state secretaries</span>
+					<h2 class="publishdate">2022-13-11</h2>
+					<h1 class="title">Het geschenkenregister gevisualiseerd"</h1>
 				</div>
 
-				<p>After the longest formation period ever (approximately 300 days) the Netherlands 
-				has a government once again. Sworn in on January 10th, the fourth Rutte cabinet features 
-				several new positions (like a minister for climate and energy), a fair amount of women
-				(14 out of 29) and the youngest state secretary in 48 years. Since the (nearly) 50% of women 
-				was a first for Dutch politics I became interested in the long line of the former Dutch cabinet 
-				members. Since I am trying to learn more about web scraping and data visualization I decided 
-				to create a dataset of all Dutch members of cabinet ever (or since 1877).</p>
+				<p>Met de verkiezingen in het zicht pakte ik een projectje op waar ik lang geleden al op was vastgelopen: 
+				het visualiseren van het geschenkenregister. Het geschenkenregister is een overzicht van cadeautjes die Nederlandse
+				Tweede Kamer leden ontvangen bij werkbezoeken, als bedankje voor een optreden, of gewoon omdat iemand ze iets leuks 
+				wil geven. Waarom moeten ze dit allemaal aangeven? Zo voorkomen we dat omkoping in de vorm van extreme giften ongezien 
+				blijft en inmenging. Zo is er bijvoorbeeld ook een register van nevenfuncties.</p>
 
-				<p>Creating this dataset was quite an interesting process, from setting the gender of all 
-				members before 1952 to male to discovering cabinet members that had no less than four positions. 
-				Truly, it was quite the project and it involved way too much manual work. If you want to see the 
-				specifics, feel free to look at my code on GitHub. </p>
+				<p>Het geschenkenregister wordt met wisselende precisie bijgehouden door de kamerleden: zo zoekt de ene wel netjes de 
+				prijs van een bosatlas op, en de andere niet. Het is daardoor best lastig om snel te zoeken in het pdf bestand. Het 
+				leek mij dan ook leuk om dit register te visualiseren op een manier die de informatie speelbaar maakt, je kan leker 
+				rondklikken, verkennen, en al met al wordt het zo als het ware leuk. Ook heb ik het mogelijk gemaakt om snel patronen 
+				te vinden door de geschenken te groeperen op partij, persoon en categorie. </p>
 				
-				<p>And then came the fun part: data visualization! I thought the ideas would come up in my head 
-				on a whim but to be honest, they simply didn’t. Or they did, but it just didn’t work out. I made 
-				a simple plot of the percentage of women in cabinets but further than that I didn’t leverage my dataset 
-				as much as I wanted to. I thought about it for a few weeks but I can’t come up with a way to visualize 
-				the data in a meaningful way. Perhaps in the future, I should start with a why instead of: let’s gather 
-				this pile of data and see where it takes us! </p>
+				<p>Een paar opvallende dingen: </p>
+
+				<p> Je kan de visualisatie hier vinden: https://almaliezenga.com/blog/geschenkenregister/visualization.html </p>
+
+				<p>Ik hoop dat je er </p>
 				
-				<p>So perhaps you know what to do with it? I decided that instead of sitting on it for even longer I 
-				should finish up my work and publish it to see if anyone else has cool ideas for using the data. I think 
-				there is a cool data visualization in there somewhere. I have added the links to CSV and Excel files and
-				code below, I’m sure there are still some mistakes in the file (manually checking all 1106 people was a 
-				bridge too far). So I would say good luck, delve into some data and see what you can find in this pile of 
-				information! </p>
-				
-				<iframe src="https://almaliezenga.com/blog/cabinet-members-of-the-netherlands/visualization.html" width="100%" 
+				<iframe src="https://almaliezenga.com/blog/geschenkenregister/visualization.html" width="100%" 
 					height="500" frameborder="0" scrolling="no"></iframe>
 
-				<p><a href="https://github.com/AlmaLiezenga/Dutch-cabinet-members">GitHub repository with code and data</a> </p>
+				<p>De code voor het schoonmaken van de data is hier te vinden: ik heb de pdf's eerst door Tabula gegooid<a href="https://github.com/AlmaLiezenga/Dutch-cabinet-members">GitHub repository with code and data</a> </p>
 
 				<p><a href="https://www.kaggle.com/datasets/almaliezenga/cabinet-members-of-the-netherlands">Kaggle page with data</a> </p>
+				<h1>References</h1>
+
 				
 			</div>
 		</div>
