@@ -23,7 +23,7 @@
 		<!-- Metadata -->
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="Het visualiseren van het geschenkenregister 
-		  van leden van de tweede kamer.">
+		  van leden van de Tweede Kamer.">
 		<meta name="publish_date" property="og:publish_date"
 		content="2023-11-13">
 
@@ -35,9 +35,9 @@
 	  <meta property="og:title" content="Het geschenkenregister gevisualiseerd">
 	  <meta property="og:site_name" content="Alma Liezenga">
 	  <meta property="og:description" content="Het visualiseren van het geschenkenregister 
-		  van leden van de tweede kamer.">
+		  van leden van de Tweede Kamer.">
 	  <meta property="og:image"
-	  content="https://almaliezenga.com/blog/geschenkenregister/header.jpeg">
+	  content="https://almaliezenga.com/blog/geschenkenregister/header.png">
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image">
@@ -57,35 +57,50 @@
 				to homepage</a></span>
 				<div class="header">
 					<h2 class="publishdate">2022-13-11</h2>
-					<h1 class="title">Het geschenkenregister gevisualiseerd"</h1>
+					<h1 class="title">Het geschenkenregister gevisualiseerd</h1>
 				</div>
 
-				<p>Met de verkiezingen in het zicht pakte ik een projectje op waar ik lang geleden al op was vastgelopen: 
-				het visualiseren van het geschenkenregister. Het geschenkenregister is een overzicht van cadeautjes die Nederlandse
-				Tweede Kamer leden ontvangen bij werkbezoeken, als bedankje voor een optreden, of gewoon omdat iemand ze iets leuks 
-				wil geven. Waarom moeten ze dit allemaal aangeven? Zo voorkomen we dat omkoping in de vorm van extreme giften ongezien 
-				blijft en inmenging. Zo is er bijvoorbeeld ook een register van nevenfuncties.</p>
+				<p>Met de verkiezingen in het zicht pakte ik een projectje op waar ik lang geleden op was vastgelopen: 
+				het visualiseren van het geschenkenregister. Het geschenkenregister is een overzicht van geschenken die Nederlandse
+				Tweede Kamerleden ontvangen, bijvoorbeeld bij werkbezoeken, of als bedankje voor een optreden. In principe 
+				hoeven alleen geschenken en voordelen met een waarde hoger dan €50 te worden vermeld. Het bijhouden van giften is
+				belangrijk omdat zo omkoping wordt tegengegaan. </p>
 
-				<p>Het geschenkenregister wordt met wisselende precisie bijgehouden door de kamerleden: zo zoekt de ene wel netjes de 
-				prijs van een bosatlas op, en de andere niet. Het is daardoor best lastig om snel te zoeken in het pdf bestand. Het 
-				leek mij dan ook leuk om dit register te visualiseren op een manier die de informatie speelbaar maakt, je kan leker 
-				rondklikken, verkennen, en al met al wordt het zo als het ware leuk. Ook heb ik het mogelijk gemaakt om snel patronen 
-				te vinden door de geschenken te groeperen op partij, persoon en categorie. </p>
+				<p>Het geschenkenregister wordt met wisselende precisie bijgehouden door de kamerleden: zo zoekt de ene netjes de 
+				prijs van elk geschenk uit terwijl andere Kamerleden opvallend weinig (of geen) geschenken ontvangen. Dit, in combinatie met 
+				het matige formaat waarin het geschenkenregister wordt aangeleverd, maakt het best lastig en saai om opvallende geschenken 
+				uit het register te halen. Daarom leek het mij nuttig om dit register te visualiseren op een manier die rondklikken door de geschenken 
+				leuk maakt, een manier die je nieuwsgierigheid wekt, en die snel inzichtelijk maakt waar de uitschieters zitten. </p>
+
+				<p>Het idee voor deze visualisatie had ik al een tijd geleden bedacht, maar ik kon geen goed voorbeeld vinden van 
+				een dergelijke visualisatie om mijn project op te baseren. Onlangs kwam het voorbeeld van 
+				<a href=https://github.com/vlandham/bubble_chart_v4/blob/master/src/bubble_chart.js>Jim Vallandingham</a> tegen en met zijn 
+				code als uitgangspunt kreeg ik het snel voor elkaar. </p>
 				
-				<p>Een paar opvallende dingen: </p>
+				<p>Bekijk de visualisatie, klik rond, en zoek de uitschieters op: <a href=https://almaliezenga.com/blog/geschenkenregister/visualization.html></a> </p>
 
-				<p> Je kan de visualisatie hier vinden: https://almaliezenga.com/blog/geschenkenregister/visualization.html </p>
+				<p>Bij dezen alvast een paar dingen die mij opvielen: </p>
+				<ol>
+					<li>Enkele Kamerleden (20 in totaal, waaronder alle 5 Kamerleden van de FvD) hebben aangegeven geen enkel geschenk te hebben ontvangen. 
+					Dit lijkt onwaarschijnlijk aangezien alle andere Kamerleden ten minste de zesenvijftigste editie van de Grote Bosatlas hebben ontvangen van 
+					Uitgeverij Noordhoff. </li>
+					<li>SGP-kamerlid Roelof Bisschop houdt een behoorlijk zakcentje over aan het geven van lezingen. Hij is een van de weinige kamerleden 
+					die regelmatig aangeeft geldbedragen te hebben aangenomen voor het geven van lezingen en spreekbeurten. </li>
+					<li> </li>
+				</ol>  
 
-				<p>Ik hoop dat je er </p>
 				
 				<iframe src="https://almaliezenga.com/blog/geschenkenregister/visualization.html" width="100%" 
 					height="500" frameborder="0" scrolling="no"></iframe>
 
-				<p>De code voor het schoonmaken van de data is hier te vinden: ik heb de pdf's eerst door Tabula gegooid<a href="https://github.com/AlmaLiezenga/Dutch-cabinet-members">GitHub repository with code and data</a> </p>
+				<h1>Verwijzingen</h1>
 
-				<p><a href="https://www.kaggle.com/datasets/almaliezenga/cabinet-members-of-the-netherlands">Kaggle page with data</a> </p>
-				<h1>References</h1>
-
+				<ol type="1">
+					<li>Het pdf bestand van het geschenkenregister is op 10-11-2023 gedownload van: <a href=https://www.tweedekamer.nl/kamerleden_en_commissies/openbare_registers></a> </li>
+					<li>De visualisatie is gebouwd op basis van het voorbeeld van Jim Vallandingham dat hier te vinden is: <a href=https://github.com/vlandham/bubble_chart_v4/blob/master/src/bubble_chart.js> </a> </li>
+					<li>De data en code voor mijn eigen visualisatie is te vinden op: <a href=https://github.com/AlmaLiezenga/almaliezenga.com/tree/main/blog/geschenkenregister></a> deze code is (nog) niet goed gedocumenteerd.</li>
+					<li>De kleuren van de politieke partijen zijn gebaseerd op de Wikipedia pagina van de Tweede Kamer der Staten-Generaal: <a href=https://nl.wikipedia.org/wiki/Tweede_Kamer_der_Staten-Generaal> </a> </li>
+				</ol>  
 				
 			</div>
 		</div>
