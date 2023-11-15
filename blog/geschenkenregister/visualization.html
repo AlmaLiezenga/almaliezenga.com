@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Het geschenkenresgiter gevisualiseerd</title>
+  <meta name="description" content="Het gechenkenregister van de Tweede Kamer der Staten-Generaal gevisualiseerd.">
+  <meta name="author" content="Alma Liezenga">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/bubble_chart.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Het Geschenkenregister Gevisualiseerd</h1>
+    <div id="toolbar">
+      <a href="#" id="all" class="button active">Alle geschenken</a>
+      <a href="#" id="party" class="button">Per partij</a>
+      <a href="#" id="category" class="button">Per categorie</a>
+    </div>
+    <div id="vis"></div>
+
+    <div class="footer">
+      <p>Dit is een visualisatie van het geschenkenregister van de Tweede Kamerleden.</p>  
+      <p> De data is van 08-11-2023 en gedownload via <a href=https://www.tweedekamer.nl/kamerleden_en_commissies/openbare_registers>het openbare register.</a></p>
+      <p> De bijbehorende blogpost is <a href="https://almaliezenga.com/blog/geschenkenregister/">hier</a> te vinden.</p>  
+      <p> De visualisatie zelf is gebaseerd op een voorbeeld van Jim Vallandingham: <a href="http://vallandingham.me/bubble_charts_with_d3v4.html">zijn blog post</a> en <a href="https://github.com/vlandham/bubble_chart_v4">zijn code</a></p>
+    </div>
+  </div>
+
+  <script src="//d3js.org/d3.v4.min.js"></script>
+  <script src="src/tooltip.js"></script>
+  <script src="src/bubble_chart_geschenkenregister.js"></script>
+
+</body>
+</html>
