@@ -1,0 +1,113 @@
+<!-- HTML code outline created by Rob C. de Wit 2021 -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Alma Liezenga">
+		<title>Het geschenkenregister gevisualiseerd</title>
+		<link rel="stylesheet" href="../../css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+		href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,700&display=swap"
+		rel="stylesheet">
+		<link
+		href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+		rel="stylesheet">
+		<link rel="icon" href="data:image/svg+xml,<svg
+		xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text
+		y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
+
+		<!-- Metadata -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="description" content="Het visualiseren van het geschenkenregister 
+		  van leden van de Tweede Kamer.">
+		<meta name="publish_date" property="og:publish_date"
+		content="2023-11-15">
+
+
+	  <!-- Open graph meta tags -->
+	  <meta property="og:url"
+	  content="https://almaliezenga.com/blog/geschenkenregister/">
+	  <meta property="og:type" content="blog">
+	  <meta property="og:title" content="Het geschenkenregister gevisualiseerd">
+	  <meta property="og:site_name" content="Alma Liezenga">
+	  <meta property="og:description" content="Het visualiseren van het geschenkenregister 
+		  van leden van de Tweede Kamer.">
+	  <meta property="og:image"
+	  content="https://almaliezenga.com/blog/geschenkenregister/header.png">
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="almaliezenga.com">
+		<meta property="twitter:url"
+		content="https://almaliezenga.com/blog/geschenkenregister/index.html">
+		<meta name="twitter:title" content="Het geschenkenregister gevisualiseerd">
+		<meta name="twitter:description" content="Het visualiseren van het geschenkenregister 
+		  van leden van de tweede kamer.">
+		<meta name="twitter:image" content="">
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="blogpost">
+				<span class="breadcrumbs"><a href="../../index.html">&lt&lt Back
+				to homepage</a></span>
+				<div class="header">
+					<h2 class="publishdate">2024-06-30</h2>
+					<h1 class="title">Combining IMDb data with the Bechdel Test</h1>
+					<h2 class="title">My submission for the Y42 Hackathon</h2>
+				</div>
+
+        <p> I was recently motivated 
+        </p>
+
+				<p>Met de verkiezingen in zicht pakte ik een projectje op waar ik lang geleden op was vastgelopen: 
+				het visualiseren van het geschenkenregister. Het geschenkenregister is een overzicht van geschenken die Nederlandse
+				Tweede Kamerleden ontvangen, bijvoorbeeld bij werkbezoeken, of als bedankje voor een optreden. Er bestaat hiernaast 
+				ook een register van nevenfuncties en buitenlandse reizen. Voor Volt is dit nog niet genoeg: <a href=https://voltnederland.org/nieuws/na-een-afkoelperiode-nu-ook-een-lobbyregister>
+				zij pleiten, met succes, voor een lobbyregister.</a> </p>
+
+				<p>Het geschenkenregister wordt met wisselende precisie bijgehouden door de Kamerleden. Zo zoekt de ene netjes de 
+				prijs van elk geschenk uit terwijl andere Kamerleden opvallend weinig (of geen) geschenken ontvangen. Dit, in combinatie met 
+				het matige format waarin het geschenkenregister wordt aangeleverd, maakt het best lastig en saai om opvallende geschenken 
+				uit het register te vissen. Vandaar dat het mij nuttig leek om dit register te visualiseren op een manier die rondklikken door de geschenken 
+				leuk maakt, een manier die je nieuwsgierigheid wekt, en die snel inzichtelijk maakt waar de uitschieters zitten. </p>
+				
+				<p>Some of my personal and technical take-aways from this challenge: </p>
+				<ol>
+					<li>Enkele Kamerleden (20 in totaal) hebben aangegeven geen enkel geschenk te hebben ontvangen. Het gaat hierbij om eenpersoonsfracties, 
+					leden van kleine fracties en leden van grote fracties. Het lijkt onwaarschijnlijk dat ze daadwerkelijk geen geschenken hebben ontvangen 
+					aangezien alle andere Kamerleden ten minste de zesenvijftigste editie van de Grote Bosatlas hebben gekregen van Uitgeverij Noordhoff.  </li>
+					<li>SGP-kamerlid Roelof Bisschop lijkt een behoorlijk zakcentje over te houden aan het geven van lezingen. Hij is een van de weinige kamerleden 
+					die regelmatig heeft aangegeven geldbedragen te hebben ontvangen voor het geven van lezingen en spreekbeurten. <a href=https://www.nporadio1.nl/nieuws/politiek/6f5f7d20-6005-4d39-886d-05790f760934/kamerleden-stop-eens-met-al-die-bijbaantjes>Bisschop werd eerder dit jaar ook al
+					op de vingers getikt omdat hij te veel bijverdiende met nevenfuncties; hij moest zo'n 600 euro salaris terugbetalen.</a> </li>
+					<li>Het lastige bij het visualiseren en analyseren van deze data is: wat je niet weet, weet je niet. Zo kunnen er in deze visualisatie mensen 
+					(zoals Roelof Bisschop) opvallen die simpelweg netjes hun administratie bijhouden, terwijl de mensen die helemaal niets opgeven, niet eens 
+					zichtbaar zijn. <a href="https://nos.nl/artikel/2496995-integriteitscommissie-kamer-wil-schorsing-drie-kamerleden-forum-voor-democratie">
+					Aangezien onlangs nog bleek dat enkele Kamerleden van FvD zich niet aan de gedragsregels voor het doorgeven van nevenfuncties hebben gehouden,</a> 
+					lijkt het me onwaarschijnlijk dat het geschenkenregister wel een perfecte weergave van de werkelijkheid is. </li>
+				</ol>  
+				
+				Uiteraard heb ik ook fouten gemaakt bij het verwerken van deze data. Ik heb een groot gedeelte van dit proces geautomatiseerd, en daarbij kun je erop 
+				rekenen dat er ook wel eens een foutje tussendoor glipt. Voel je vrij om contact met me op te nemen als je er een paar hebt gevonden! 
+				
+				<h2>Verwijzingen</h2>
+
+				<ol type="1">
+					<li>Het pdf bestand van het geschenkenregister is op 10-11-2023 gedownload via <a href=https://www.tweedekamer.nl/kamerleden_en_commissies/openbare_registers>het openbare register</a>.</li>
+					<li>De visualisatie is gebouwd op basis van het voorbeeld van Jim Vallandingham. Hier vindt je <a href="http://vallandingham.me/bubble_charts_with_d3v4.html">zijn blog post</a> en <a href="https://github.com/vlandham/bubble_chart_v4">zijn code</a> </li>
+					<li>De code voor mijn eigen visualisatie is te vinden op <a href=https://github.com/AlmaLiezenga/almaliezenga.com/tree/main/blog/geschenkenregister>GitHub</a>, deze code is (nog) niet goed gedocumenteerd.</li>
+					<li>De data voor mijn eigen visualisatie is ook te vinden op <a href=https://github.com/AlmaLiezenga/almaliezenga.com/tree/main/blog/geschenkenregister/data>Github</a>. </li>
+					<li>De kleuren van de politieke partijen zijn gebaseerd op <a href=https://nl.wikipedia.org/wiki/Tweede_Kamer_der_Staten-Generaal>de Wikipedia pagina van de Tweede Kamer der Staten-Generaal</a>. </li>
+					<li>Volt Nederland (2021) Na een afkoelperiode, nu ook een lobbyregister, <a href=https://voltnederland.org/nieuws/na-een-afkoelperiode-nu-ook-een-lobbyregister>https://voltnederland.org/nieuws/na-een-afkoelperiode-nu-ook-een-lobbyregister</a></li>
+					<li>NOS (2023) Integriteitscommissie Kamer wil schorsing drie Kamerleden Forum voor Democratie, <a href=https://nos.nl/artikel/2496995-integriteitscommissie-kamer-wil-schorsing-drie-kamerleden-forum-voor-democratie>https://nos.nl/artikel/2496995-integriteitscommissie-kamer-wil-schorsing-drie-kamerleden-forum-voor-democratie</a></li>
+					<li>NPO Radio 1 (2023) 'Kamerleden, stop eens met al die bijbaantjes', <a href=https://www.nporadio1.nl/nieuws/politiek/6f5f7d20-6005-4d39-886d-05790f760934/kamerleden-stop-eens-met-al-die-bijbaantjes>https://www.nporadio1.nl/nieuws/politiek/6f5f7d20-6005-4d39-886d-05790f760934/kamerleden-stop-eens-met-al-die-bijbaantjes</a></li>
+				</ol>  
+				
+			</div>
+		</div>
+	</body>
+</html>
