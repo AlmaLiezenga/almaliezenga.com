@@ -111,87 +111,58 @@
 	<h2>The visualizations </h2>
 	<p>I have created some visualizations based on my tables that you can find below. I started all of these visualizations with a specific question in mind and though my dataset was limited (just 3K for the metadata like genre, budget, profit) I think these visualizations give a nice initial taste of the topic. </p>
 
-	<h3>How has the representation of women in movies shifted over the years (and across different genres)? </h3>
+	<h3>How has the representation of women in movies shifted over the years? </h3>
+	<p>For this visualization, I used the table with all Bechdel-rated movies, and calculated the percentage of movies that scored a 0, 1, 2 or 3 per year. I cut off at year 1930 since the number of movies for the earlier years was so low that the percentage was not representative at all. </p>
+
+
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz1.html" width="100%" 
+		height="500" frameborder="0" scrolling="no"></iframe>
+
+	<h3>How has the budget and profit of movies changed over the years?</h3>
+	<p>For this visualization, I used the smaller Kaggle dataset which included gross profit and budget for each movie. I took the average budget and profit per year. When I visualized this, I directly noticed a sharp dip which I thought was a mistake, perhaps caused by missing data for that year. However, when I looked at the actual years this concerned 
+		(2020 and 2021) I soon realized this was due to he COVID-19 pandemic. Besides that, it is clear to see that budgets for movies as well as profits have severely increased, especially in the last few years.</p>
+
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz2.html" width="100%" 
+		height="500" frameborder="0" scrolling="no"></iframe>
 				
-
-
-
-<!-- 
-For this, I used the first named genre from IMDb, calculated the percentage of movies that scored a 4 (highest rating, or a pass). I cut off at year xx since the number of movies for the earlier years was so low that the percentage was not very representative. I only calculated the number over the movies that actually had a bechdel test rating which of course severly limits the number of movies in the sampel (from xxx in imdb to xx)
-
-1. linechart of year (x) + genre (group) + bechdel test (y) 
-
-How has the budget and profit of movies changed over the years and across genres?
-
-I used the dataset with all movies, regardless of bechdel test score, and the first genre for each movie again + the average budget of all movies in that genre in that year, which shifts it a bit ofcourse. 
-
-1. barplot of budget (x) + year (y) + genre (group)
-2. barplot of gross (x) + year (y) + genre (group) —> add a line for this 
-
-How does the representation of women differ per movie genre? 
-
-Finally I could us e a radarchart/ nightingale rose chart for something! This chart has been on the wishlist for a while but it never seems appropriate. In this case I did include all categroies of the bechdel test and looking at the percentage of movies for each genre that passed one of the categories. 
-
-1. radarchart of nightingale rose chart of genre + bechdel test 
-
-Which popular movies have not been rated in the Bechdel test yet? 
-
-Ofcourse I also want to motivate you to engage with the [bechdeltest.com](http://bechdeltest.com) and fill in the rating of movies you have watched! Therefore, I have included a visualization that shows the movies across genre and years that have not been rated in the bechdel test and have the highes number of ratings (so they should be watched a lot!) 
-
-1. The most watched movies that do not have a be heel test score per year and genre 
-
-How does my own taste of music compare to the highest rated IMDb movies in terms of rating and bechdel test? 
-
-I was curious to see how my own movie share actually compared to the highest rarted movies on imdb 
-
-i also used some tricks with streaming services to quickly compound a list of movies I had seen 
-
-I invite you tho fill in this form, though my project is not at a point of continiously updating from this form to this visualization, I will try to update regularly in the coming weeks. 
-
-1. 2 heatmap of genre + bechdel test + rating reviews (for me and for x top imdb) 
-
-Take-aways 
-
-Some of my take-aways and learnings from this process
-
-- Updating data continously significantly increases your possibilities to make a project more fyun
-- working with SQL is significantly more easier to track than working with dataframes
-- In addition to that, With Y42 I could easily see the flow of the data which made it so much easier to understand what I was building and make sure my data was clean
-- the deadline of a hackathon is a fun way to get from an idea to a MVP fast. Tghere are still many things to improve in this project, but that is fine! I worked on it for about two full days and that already got me to a fun point.
-        </p> -->
-
-				<p>Met de verkiezingen in zicht pakte ik een projectje op waar ik lang geleden op was vastgelopen: 
-				het visualiseren van het geschenkenregister. Het geschenkenregister is een overzicht van geschenken die Nederlandse
-				Tweede Kamerleden ontvangen, bijvoorbeeld bij werkbezoeken, of als bedankje voor een optreden. Er bestaat hiernaast 
-				ook een register van nevenfuncties en buitenlandse reizen. Voor Volt is dit nog niet genoeg: <a href=https://voltnederland.org/nieuws/na-een-afkoelperiode-nu-ook-een-lobbyregister>
-				zij pleiten, met succes, voor een lobbyregister.</a> </p>
-
-				<p>Het geschenkenregister wordt met wisselende precisie bijgehouden door de Kamerleden. Zo zoekt de ene netjes de 
-				prijs van elk geschenk uit terwijl andere Kamerleden opvallend weinig (of geen) geschenken ontvangen. Dit, in combinatie met 
-				het matige format waarin het geschenkenregister wordt aangeleverd, maakt het best lastig en saai om opvallende geschenken 
-				uit het register te vissen. Vandaar dat het mij nuttig leek om dit register te visualiseren op een manier die rondklikken door de geschenken 
-				leuk maakt, een manier die je nieuwsgierigheid wekt, en die snel inzichtelijk maakt waar de uitschieters zitten. </p>
+	<h3>How does the representation of women differ per movie genre? </h3>
 				
-				<p>Some of my personal and technical take-aways from this challenge: </p>
-				<ol>
-					<li>Enkele Kamerleden (20 in totaal) hebben aangegeven geen enkel geschenk te hebben ontvangen. Het gaat hierbij om eenpersoonsfracties, 
-					leden van kleine fracties en leden van grote fracties. Het lijkt onwaarschijnlijk dat ze daadwerkelijk geen geschenken hebben ontvangen 
-					aangezien alle andere Kamerleden ten minste de zesenvijftigste editie van de Grote Bosatlas hebben gekregen van Uitgeverij Noordhoff.  </li>
-					<li>SGP-kamerlid Roelof Bisschop lijkt een behoorlijk zakcentje over te houden aan het geven van lezingen. Hij is een van de weinige kamerleden 
-					die regelmatig heeft aangegeven geldbedragen te hebben ontvangen voor het geven van lezingen en spreekbeurten. <a href=https://www.nporadio1.nl/nieuws/politiek/6f5f7d20-6005-4d39-886d-05790f760934/kamerleden-stop-eens-met-al-die-bijbaantjes>Bisschop werd eerder dit jaar ook al
-					op de vingers getikt omdat hij te veel bijverdiende met nevenfuncties; hij moest zo'n 600 euro salaris terugbetalen.</a> </li>
-					<li>Het lastige bij het visualiseren en analyseren van deze data is: wat je niet weet, weet je niet. Zo kunnen er in deze visualisatie mensen 
-					(zoals Roelof Bisschop) opvallen die simpelweg netjes hun administratie bijhouden, terwijl de mensen die helemaal niets opgeven, niet eens 
-					zichtbaar zijn. <a href="https://nos.nl/artikel/2496995-integriteitscommissie-kamer-wil-schorsing-drie-kamerleden-forum-voor-democratie">
-					Aangezien onlangs nog bleek dat enkele Kamerleden van FvD zich niet aan de gedragsregels voor het doorgeven van nevenfuncties hebben gehouden,</a> 
-					lijkt het me onwaarschijnlijk dat het geschenkenregister wel een perfecte weergave van de werkelijkheid is. </li>
-				</ol>  
+	<p>Finally, I had an opportunity to use a Nightingale rose chart for something! This chart has been on the wishlist for a while but it never seemed fitting for my projects. In this case, I used the combination of genre data from the Kaggle dataset and Bechdel-ratings. I excluded some of the less popular genres.
+		I noticed that Horror seems to be a very inclusive genre, though that might just be because it leaved little opportunity for romance.</p>
+
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz3.html" width="100%" 
+		height="500" frameborder="0" scrolling="no"></iframe>
+
+	<h3>Which popular movies have not been rated in the Bechdel test yet? </h3>
+
+	<p>This is the part where I motivate you to contribute to the <a href="https://bechdeltest.com/">bechdeltest.com</a> (no spon). I created this visualization to show which popular movies across years and genres do not have a Bechdel rating. Hover over the movies to spot any you might have seen (and know the rating for) and <a href="https://bechdeltest.com/add/">submit the rating directly</a>. 
+		I have included the IMDb ID to make this easier.</p>>
+
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz4.html" width="100%" 
+		height="500" frameborder="0" scrolling="no"></iframe>
+
 				
-				Uiteraard heb ik ook fouten gemaakt bij het verwerken van deze data. Ik heb een groot gedeelte van dit proces geautomatiseerd, en daarbij kun je erop 
-				rekenen dat er ook wel eens een foutje tussendoor glipt. Voel je vrij om contact met me op te nemen als je er een paar hebt gevonden! 
-				
-				<iframe src="https://almaliezenga.com/blog/top-2000/visualization1.html" width="100%" 
-					height="500" frameborder="0" scrolling="no"></iframe>
+	<h3>How does the representation of women differ per movie genre? (pt.2) + How does my own taste of movies compare to the highest-rated IMDb movies in terms of genre and Bechdel-rating? </h3>
+
+	<p>As much as I loved using the Nightingale rose chart I must admit it might not have had the highest readability. I therefore created a heatmap as well, showing the same data: movies per genre and Bechel-rating.  </p>
+
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz5.html" width="100%" 
+		height="500" frameborder="0" scrolling="no"></iframe>	
+
+	<p>This visualization also seemed easier to use to compare to my personal heatmap of Bechdel-rated movies.</p>
+
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz5.html" width="100%" 
+		height="500" frameborder="0" scrolling="no"></iframe>	
+
+	<h2>Takeaways</h2>
+
+	<p>Some of my takeaways and learnings from this hackathon:</p>
+	<ol>
+		<li>Updating data continuously significantly increases your possibilities to make a project more fun and scalable. I directly saw more possibilities for building something which could be interactive and adding more value with your visualizations since they are (and remain) up-to-date.</li>
+		<li>SQL > dataframes: it had been some time since I had worked in SQL but it was amazing to notice how much easier data analysis (in particular aggregation) was with SQL compared to the dataframes that I usually use.</li>
+		<li>In addition to that, With Y42 I could easily see the flow of the data from ingestion to completed tables which made it so much easier to understand what I was building and make sure my data came together in the right ways.</li>
+		<li>Though a bit stressful, the deadline of a hackathon is a fun way to get from an idea to an MVP fast. There are still many things to improve in this project, but that is fine! I worked on it for about two full days and that already got me to a fun point.</li>
+	</ol>
 				
 			</div>
 		</div>
