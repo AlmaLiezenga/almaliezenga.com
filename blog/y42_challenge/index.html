@@ -61,8 +61,104 @@
 					<h2 class="title">My submission for the Y42 Hackathon</h2>
 				</div>
 
-        <p> I was recently motivated 
-        </p>
+        <p> Usually, I don’t ‘do’ data engineering. As a researcher, I am more focused on data analysis and building machine learning models. For my personal projects, I often just patch together a bunch of dataframes and visualize them as I go, without periodical updates. 
+		Overall, I often brush over the part where I structure my data pipelines more eloquently and make them reproducible and scalable. However, I was recently tempted to partake in the Y42 hackathon and this motivated me to rethink my focus on data analysis and visualization. 
+		This is my submission for said hackathon, I hope you enjoy! </p>
+				
+	<p>For this hackathon I finally delved into a feminist phenomenon that I have loved for a long time: the Bechdel test. The Bechdel test (<a href="https://en.wikipedia.org/wiki/Bechdel_test">Wikipedia</a>), introduced in a comic in a feminist newspaper in 1985, is a measure of the representation of women in film. 
+		A movie passes the test if it fits the following requirements: </p>
+		<ol>
+			<li>The movie has to have at least two women in it,</li>
+			<li>who talk to each other,</li>
+			<li>about something other than a man</li>
+		</ol>
+	<p>Once you start paying attention to these requirements while watching movies (or series), you soon realize to realize how little of them meet these ‘simple’ guidelines. This only shows how lacking the presence of women in most popular media, and fiction in particular, is. 
+		I had been wanting to do something with this test, and in particular, with the data from <a href="https://bechdeltest.com/">bechdeltest.com</a> and this hackathon allowed me to do so! My main goals were to enrich the existing dataset of movies that do (or do not) pass the test with additional knowledge 
+		such as genre, budget and popularity. I also wanted to create visualizations that showcased trends in cinema in general and in the presence of women in movies in particular. 
+	</p>
+
+	<h2>The process</h2>
+	I will now describe some technical details of my Y42 set-up, feel free to skip over this and go straight to the visualizations if that is more of your cup of tea. 
+				
+	<h3>Data</h3>
+	<p>I selected three data sources for this project:</p>
+	<ol>
+		<li><a href="https://bechdeltest.com/">bechdeltest.com</a> has an API that allows you to download all movies on their website, which includes the IMDb ID, title, release year, Bechdel test score (0-3, based on the number of requirements it meets). The website contains over 10K ratings. </li>
+		<li><a href="https://www.kaggle.com/datasets/adriankiezun/imdb-dataset-2023">Kaggle IMDb Dataset 2023</a> by adriankiezun, this dataset had a lot of nice additional information about movies and the IMDb ID as an identifier, in terms of interesting data it added genres (up to 3), average rating, 
+			number of votes for that rating, budget, and gross profit. A disadvantage of choosing this dataset was that it was relatively small with just over 3K entries.</li>
+		<li><a href="">My own movie watchlist</a> to added some interactivity and to leverage the possibilities of Y42 I connected the results from a Google Form. I really liked this because it gave me a sense of interactivity. I decided to create a form in which I (or you) could add the movies I have 
+			watched to visualize how my movie preferences compare to the highest-rated movies.</li>
+	</ol>
+	<p>For ingestion, I used the Python cloud functions of Y42 for the Kaggle and <a href="https://bechdeltest.com/">bechdeltest.com</a> dataset and used a build-in functionality of the standard connector for the Google sheet. </p>
+	
+	<h3>Combining datasets</h3>
+
+	<p>Once I had ingested the data from these sources, which required some tinkering in particular to get the Kaggle data connected, I created staging tables with the relevant columns for my project, did some reformatting to make IDs fit across tables, and to include a main genre column. 
+		Once these staging tables were set up, it was easy to combine and aggregate data in additional tables using SQL. It had been a while since I had used SQL but it was surprisingly easy to restructure data and aggregate variables. I initially created three main tables: </p>
+	<ol>
+		<li>A table with all Bechdel-rated movies and additional metadata added when possible.</li>
+		<li>A table with all movies from the Kaggle dataset and Bechdel rating added when possible.</li>
+		<li>A table with only the movies I watched (okay not literally all movies I ever watched, but I was able to get to a nice group based on my streaming history) with metadata and Bechdel-rating added if available</li>
+	</ol>
+	<p>Starting from the tables I was able to quickly create aggregated tables which could answer specific questions I had, such as: how has the representation of women in movies changed over the years? How has gross profit and budget of movies changed over the years? Which popular movies do not have a Bechdel test rating yet?</p>
+
+	<h3>Scheduling and exporting</h3>
+	
+	<p>Now that I had all my tables set up I could build a scheduler. Usually, I build visualizations one-off, but using a scheduler will allow my data to change over time. I did not manage to export my data in an automated way, since I was struggling with the Google Sheets export functionality, so for now I sticked to exporting 
+				to csv and running my visualizations locally from there on out. However, using the scheduler and being able to clearly visualize the lineage of my tables already enabled me to make my data processing much more reproducible and scalable. It is now significantly easier to export the updated tables and 
+				renew my figures compared to previous projects. </p>
+				
+	<h2>The visualizations </h2>
+	<p>I have created some visualizations based on my tables that you can find below. I started all of these visualizations with a specific question in mind and though my dataset was limited (just 3K for the metadata like genre, budget, profit) I think these visualizations give a nice initial taste of the topic. </p>
+
+	<h3>How has the representation of women in movies shifted over the years (and across different genres)? </h3>
+				
+
+
+
+<!-- 
+For this, I used the first named genre from IMDb, calculated the percentage of movies that scored a 4 (highest rating, or a pass). I cut off at year xx since the number of movies for the earlier years was so low that the percentage was not very representative. I only calculated the number over the movies that actually had a bechdel test rating which of course severly limits the number of movies in the sampel (from xxx in imdb to xx)
+
+1. linechart of year (x) + genre (group) + bechdel test (y) 
+
+How has the budget and profit of movies changed over the years and across genres?
+
+I used the dataset with all movies, regardless of bechdel test score, and the first genre for each movie again + the average budget of all movies in that genre in that year, which shifts it a bit ofcourse. 
+
+1. barplot of budget (x) + year (y) + genre (group)
+2. barplot of gross (x) + year (y) + genre (group) —> add a line for this 
+
+How does the representation of women differ per movie genre? 
+
+Finally I could us e a radarchart/ nightingale rose chart for something! This chart has been on the wishlist for a while but it never seems appropriate. In this case I did include all categroies of the bechdel test and looking at the percentage of movies for each genre that passed one of the categories. 
+
+1. radarchart of nightingale rose chart of genre + bechdel test 
+
+Which popular movies have not been rated in the Bechdel test yet? 
+
+Ofcourse I also want to motivate you to engage with the [bechdeltest.com](http://bechdeltest.com) and fill in the rating of movies you have watched! Therefore, I have included a visualization that shows the movies across genre and years that have not been rated in the bechdel test and have the highes number of ratings (so they should be watched a lot!) 
+
+1. The most watched movies that do not have a be heel test score per year and genre 
+
+How does my own taste of music compare to the highest rated IMDb movies in terms of rating and bechdel test? 
+
+I was curious to see how my own movie share actually compared to the highest rarted movies on imdb 
+
+i also used some tricks with streaming services to quickly compound a list of movies I had seen 
+
+I invite you tho fill in this form, though my project is not at a point of continiously updating from this form to this visualization, I will try to update regularly in the coming weeks. 
+
+1. 2 heatmap of genre + bechdel test + rating reviews (for me and for x top imdb) 
+
+Take-aways 
+
+Some of my take-aways and learnings from this process
+
+- Updating data continously significantly increases your possibilities to make a project more fyun
+- working with SQL is significantly more easier to track than working with dataframes
+- In addition to that, With Y42 I could easily see the flow of the data which made it so much easier to understand what I was building and make sure my data was clean
+- the deadline of a hackathon is a fun way to get from an idea to a MVP fast. Tghere are still many things to improve in this project, but that is fine! I worked on it for about two full days and that already got me to a fun point.
+        </p> -->
 
 				<p>Met de verkiezingen in zicht pakte ik een projectje op waar ik lang geleden op was vastgelopen: 
 				het visualiseren van het geschenkenregister. Het geschenkenregister is een overzicht van geschenken die Nederlandse
@@ -94,18 +190,8 @@
 				Uiteraard heb ik ook fouten gemaakt bij het verwerken van deze data. Ik heb een groot gedeelte van dit proces geautomatiseerd, en daarbij kun je erop 
 				rekenen dat er ook wel eens een foutje tussendoor glipt. Voel je vrij om contact met me op te nemen als je er een paar hebt gevonden! 
 				
-				<h2>Verwijzingen</h2>
-
-				<ol type="1">
-					<li>Het pdf bestand van het geschenkenregister is op 10-11-2023 gedownload via <a href=https://www.tweedekamer.nl/kamerleden_en_commissies/openbare_registers>het openbare register</a>.</li>
-					<li>De visualisatie is gebouwd op basis van het voorbeeld van Jim Vallandingham. Hier vindt je <a href="http://vallandingham.me/bubble_charts_with_d3v4.html">zijn blog post</a> en <a href="https://github.com/vlandham/bubble_chart_v4">zijn code</a> </li>
-					<li>De code voor mijn eigen visualisatie is te vinden op <a href=https://github.com/AlmaLiezenga/almaliezenga.com/tree/main/blog/geschenkenregister>GitHub</a>, deze code is (nog) niet goed gedocumenteerd.</li>
-					<li>De data voor mijn eigen visualisatie is ook te vinden op <a href=https://github.com/AlmaLiezenga/almaliezenga.com/tree/main/blog/geschenkenregister/data>Github</a>. </li>
-					<li>De kleuren van de politieke partijen zijn gebaseerd op <a href=https://nl.wikipedia.org/wiki/Tweede_Kamer_der_Staten-Generaal>de Wikipedia pagina van de Tweede Kamer der Staten-Generaal</a>. </li>
-					<li>Volt Nederland (2021) Na een afkoelperiode, nu ook een lobbyregister, <a href=https://voltnederland.org/nieuws/na-een-afkoelperiode-nu-ook-een-lobbyregister>https://voltnederland.org/nieuws/na-een-afkoelperiode-nu-ook-een-lobbyregister</a></li>
-					<li>NOS (2023) Integriteitscommissie Kamer wil schorsing drie Kamerleden Forum voor Democratie, <a href=https://nos.nl/artikel/2496995-integriteitscommissie-kamer-wil-schorsing-drie-kamerleden-forum-voor-democratie>https://nos.nl/artikel/2496995-integriteitscommissie-kamer-wil-schorsing-drie-kamerleden-forum-voor-democratie</a></li>
-					<li>NPO Radio 1 (2023) 'Kamerleden, stop eens met al die bijbaantjes', <a href=https://www.nporadio1.nl/nieuws/politiek/6f5f7d20-6005-4d39-886d-05790f760934/kamerleden-stop-eens-met-al-die-bijbaantjes>https://www.nporadio1.nl/nieuws/politiek/6f5f7d20-6005-4d39-886d-05790f760934/kamerleden-stop-eens-met-al-die-bijbaantjes</a></li>
-				</ol>  
+				<iframe src="https://almaliezenga.com/blog/top-2000/visualization1.html" width="100%" 
+					height="500" frameborder="0" scrolling="no"></iframe>
 				
 			</div>
 		</div>
