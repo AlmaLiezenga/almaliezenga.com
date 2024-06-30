@@ -55,23 +55,23 @@
 				<div class="header">
 					<h2 class="publishdate">2024-06-30</h2>
 					<h1 class="title">Combining IMDb data with the Bechdel Test</h1>
-					<h2 class="title">My submission for the Y42 Hackathon</h2>
+					<h2 class="title">My submission for the <a href="https://y42.dev/">Y42 Hackathon</a></h2>
 				</div>
 
-        <p> Usually, I don’t ‘do’ data engineering. As a researcher, I am more focused on data analysis and building machine learning models. For my personal projects, I often just patch together a bunch of dataframes and visualize them as I go, without periodical updates. 
-		Overall, I often brush over the part where I structure my data pipelines more eloquently and make them reproducible and scalable. However, I was recently tempted to partake in the Y42 hackathon and this motivated me to rethink my focus on data analysis and visualization. 
+        <p> Usually, I don’t ‘do’ data engineering. As a researcher, I am mainly focused on data analysis and building machine learning models. For my personal projects, I often patch together a bunch of dataframes and visualize them as I go, without periodical updates. 
+		Overall, I often brush over the part where I structure my data pipelines more eloquently and make them reproducible and scalable. However, I was recently tempted to partake in the Y42 hackathon, which motivated me to rethink my focus on data analysis and visualization. 
 		This is my submission for said hackathon, I hope you enjoy! </p>
 				
-	<p>For this hackathon I finally delved into a feminist phenomenon that I have loved for a long time: the Bechdel test. The Bechdel test (<a href="https://en.wikipedia.org/wiki/Bechdel_test">Wikipedia</a>), introduced in a comic in a feminist newspaper in 1985, is a measure of the representation of women in film. 
+	<p> For this hackathon I finally delved into a feminist phenomenon that I have loved for a long time: the Bechdel test. The Bechdel test (<a href="https://en.wikipedia.org/wiki/Bechdel_test">Wikipedia</a>), introduced in a comic in a feminist newspaper in 1985, is a measure of the representation of women in film. 
 		A movie passes the test if it fits the following requirements: </p>
 		<ol>
 			<li>The movie has to have at least two women in it,</li>
 			<li>who talk to each other,</li>
 			<li>about something other than a man</li>
 		</ol>
-	<p>Once you start paying attention to these requirements while watching movies (or series), you soon realize to realize how little of them meet these ‘simple’ guidelines. This only shows how lacking the presence of women in most popular media, and fiction in particular, is. 
+	<p> Once you start paying attention to these requirements while watching movies (or series), you soon realize how little of them meet these ‘simple’ guidelines. This only shows how lacking the presence of women in most popular media, and fiction in particular is. 
 		I had been wanting to do something with this test, and in particular, with the data from <a href="https://bechdeltest.com/">bechdeltest.com</a> and this hackathon allowed me to do so! My main goals were to enrich the existing dataset of movies that do (or do not) pass the test with additional knowledge 
-		such as genre, budget and popularity. I also wanted to create visualizations that showcased trends in cinema in general and in the presence of women in movies in particular. 
+		such as genre, budget, and popularity. I also wanted to create visualizations that showcased trends in cinema in general and in the presence of women in movies in particular. 
 	</p>
 
 				<img src="bechdeltestcartoon.jpeg" alt="The original Bechdel test cartoon" width="600">
@@ -83,51 +83,55 @@
 	<p>I selected three data sources for this project:</p>
 	<ol>
 		<li><a href="https://bechdeltest.com/">bechdeltest.com</a> has an API that allows you to download all movies on their website, which includes the IMDb ID, title, release year, Bechdel test score (0-3, based on the number of requirements it meets). The website contains over 10K ratings. </li>
-		<li><a href="https://www.kaggle.com/datasets/adriankiezun/imdb-dataset-2023">Kaggle IMDb Dataset 2023</a> by adriankiezun, this dataset had a lot of nice additional information about movies and the IMDb ID as an identifier, in terms of interesting data it added genres (up to 3), average rating, 
+		<li><a href="https://www.kaggle.com/datasets/adriankiezun/imdb-dataset-2023">Kaggle IMDb Dataset 2023</a> by adriankiezun, this dataset had a lot of nice additional information about movies and the IMDb ID as an identifier. It added genres (up to 3), average rating, 
 			number of votes for that rating, budget, and gross profit. A disadvantage of choosing this dataset was that it was relatively small with just over 3K entries.</li>
-		<li><a href="">My own movie watchlist</a> to added some interactivity and to leverage the possibilities of Y42 I connected the results from a Google Form. I really liked this because it gave me a sense of interactivity. I decided to create a form in which I (or you) could add the movies I have 
-			watched to visualize how my movie preferences compare to the highest-rated movies.</li>
+		<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSelwP1DpYMyEF8fmtCl54GYymHyyg9TH0uvGB0xUbf89umZwA/viewform?usp=sf_link">My own movie watchlist</a> to add some interactivity and to leverage the possibilities of Y42 I connected the results of a Google Form to my workspace. 
+			In this case, I decided to create a form in which I (or you) could add the movies I have watched to visualize how my movie preferences compare to the highest-rated movies of IMDb.</li>
 	</ol>
-	<p>For ingestion, I used the Python cloud functions of Y42 for the Kaggle and <a href="https://bechdeltest.com/">bechdeltest.com</a> dataset and used a build-in functionality of the standard connector for the Google sheet. </p>
+	<p>I used the Python cloud functions of Y42 for ingesting the Kaggle and <a href="https://bechdeltest.com/">bechdeltest.com</a> dataset and used a build-in functionality of the standard connector for the Google sheet. </p>
 	
 	<h3>Combining datasets</h3>
 
-	<p>Once I had ingested the data from these sources, which required some tinkering in particular to get the Kaggle data connected, I created staging tables with the relevant columns for my project, did some reformatting to make IDs fit across tables, and to include a main genre column. 
+	<p>Once I had ingested the data from these sources, which required some tinkering, in particular, to get the Kaggle data connected, I created staging tables with the relevant columns for my project, did some reformatting to make IDs fit across tables, and included a main genre column. 
 		Once these staging tables were set up, it was easy to combine and aggregate data in additional tables using SQL. It had been a while since I had used SQL but it was surprisingly easy to restructure data and aggregate variables. I initially created three main tables: </p>
 	<ol>
 		<li>A table with all Bechdel-rated movies and additional metadata added when possible.</li>
 		<li>A table with all movies from the Kaggle dataset and Bechdel rating added when possible.</li>
-		<li>A table with only the movies I watched (okay not literally all movies I ever watched, but I was able to get to a nice group based on my streaming history) with metadata and Bechdel-rating added if available</li>
+		<li>A table with only the movies I watched (okay not literally all movies I ever watched, I added 30 for now and will continue adding as I watch) with metadata and Bechdel-rating added if available.</li>
 	</ol>
-	<p>Starting from the tables I was able to quickly create aggregated tables which could answer specific questions I had, such as: how has the representation of women in movies changed over the years? How has gross profit and budget of movies changed over the years? Which popular movies do not have a Bechdel test rating yet?</p>
+	<p>Starting from these tables I was able to quickly create aggregate results which could answer specific questions I had, such as: how has the representation of women in movies changed over the years? How has gross profit and budget of movies changed? Which popular movies do not have a Bechdel test rating yet?</p>
 
 	<h3>Scheduling and exporting</h3>
 	
-	<p>Now that I had all my tables set up I could build a scheduler. Usually, I build visualizations one-off, but using a scheduler will allow my data to change over time. I did not manage to export my data in an automated way, since I was struggling with the Google Sheets export functionality, so for now I sticked to exporting 
-				to csv and running my visualizations locally from there on out. However, using the scheduler and being able to clearly visualize the lineage of my tables already enabled me to make my data processing much more reproducible and scalable. It is now significantly easier to export the updated tables and 
-				renew my figures compared to previous projects. </p>
+	<p>Now that I had all my tables set up I could use the scheduler. Usually, I build visualizations one-off, but using a scheduler will allow my tables to change over time as people add new ratings to <a href="https://bechdeltest.com/">bechdeltest.com</a> or as I add new entries to my form. 
+		I did not manage to export my data in an automated way, since I was struggling with the Google Sheets export functionality, so for now I sticked to exporting to csv and running my visualizations locally from there on out. 
+		However, using the scheduler and being able to clearly visualize the lineage of my tables already enabled me to make my data processing much more reproducible and scalable. It will now be significantly easier to export the updated tables and 
+		renew my figures compared to my previous projects. For those interested, you can see my final Y42 workspace below!</p>
+			
+	<img src="y42_workpace.png" alt="My Y42 workspace" width="500"></p>
 				
 	<h2>The visualizations </h2>
-	<p>I have created some visualizations based on my tables that you can find below. I started all of these visualizations with a specific question in mind and though my dataset was limited (just 3K for the metadata like genre, budget, profit) I think these visualizations give a nice initial taste of the topic. </p>
+	<p>I have created some visualizations based on my tables which you can find below. I started all of these visualizations with a specific question in mind and though my dataset was limited (just 3K for the metadata like genre, budget, profit) I think these visualizations give a nice initial taste of the topic. </p>
 
 	<h3>How has the representation of women in movies shifted over the years? </h3>
-	<p>For this visualization, I used the table with all Bechdel-rated movies, and calculated the percentage of movies that scored a 0, 1, 2 or 3 per year. I cut off at year 1930 since the number of movies for the earlier years was so low that the percentage was not representative at all. </p>
+	<p>For this visualization, I used the table with all Bechdel-rated movies, and calculated the percentage of movies that scored a 0, 1, 2, and 3 per year. I cut off at the year 1930 since the number of movies for the earlier years was so low that the percentage was not representative at all. 
+		I noticed that especially in the last few decades the representation of women who talk about something different than men has gone up. </p>
 
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz1.html" width="100%" 
 		height="500" frameborder="0" scrolling="no"></iframe>
 
 	<h3>How has the budget and profit of movies changed over the years?</h3>
-	<p>For this visualization, I used the smaller Kaggle dataset which included gross profit and budget for each movie. I took the average budget and profit per year. When I visualized this, I directly noticed a sharp dip which I thought was a mistake, perhaps caused by missing data for that year. However, when I looked at the actual years this concerned 
-		(2020 and 2021) I soon realized this was due to he COVID-19 pandemic. Besides that, it is clear to see that budgets for movies as well as profits have severely increased, especially in the last few years.</p>
+	<p>For this visualization, I used the smaller Kaggle dataset that included gross profit and budget for each movie. I took the average budget and profit per year. When I visualized this, I noticed a sharp dip which I thought was a mistake, perhaps caused by missing data for that year. However, when I looked at the actual years this concerned 
+		(2020 and 2021) I soon realized this was due to the COVID-19 pandemic. Besides that, it is clear that budgets for movies as well as profits have severely increased, especially in the last few years.</p>
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz2.html" width="100%" 
 		height="500" frameborder="0" scrolling="no"></iframe>
 				
 	<h3>How does the representation of women differ per movie genre? </h3>
 				
-	<p>Finally, I had an opportunity to use a Nightingale rose chart for something! This chart has been on the wishlist for a while but it never seemed fitting for my projects. In this case, I used the combination of genre data from the Kaggle dataset and Bechdel-ratings. I excluded some of the less popular genres.
-		I noticed that Horror seems to be a very inclusive genre, though that might just be because it leaved little opportunity for romance.</p>
+	<p>Finally, I had an opportunity to use a Nightingale rose chart! This chart has been on my wishlist for a while but it never seemed fitting for my projects. In this case, I used the combination of genre data from the Kaggle dataset and Bechdel ratings. I excluded some of the less popular genres.
+		I noticed that Horror seems to be a very inclusive genre, though that might just be because it leaves little opportunity for romance.</p>
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz3.html" width="100%" 
 		height="500" frameborder="0" scrolling="no"></iframe>
@@ -135,7 +139,7 @@
 	<h3>Which popular movies have not been rated in the Bechdel test yet? </h3>
 
 	<p>This is the part where I motivate you to contribute to the <a href="https://bechdeltest.com/">bechdeltest.com</a> (no spon). I created this visualization to show which popular movies across years and genres do not have a Bechdel rating. Hover over the movies to spot any you might have seen (and know the rating for) and <a href="https://bechdeltest.com/add/">submit the rating directly</a>. 
-		I have included the IMDb ID to make this easier.</p>>
+		I have included the IMDb ID to make this easier for you.</p>>
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz4.html" width="100%" 
 		height="1000" frameborder="0" scrolling="no"></iframe>
@@ -143,28 +147,27 @@
 				
 	<h3>How does the representation of women differ per movie genre? (pt.2) + How does my own taste of movies compare to the highest-rated IMDb movies in terms of genre and Bechdel-rating? </h3>
 
-	<p>As much as I loved using the Nightingale rose chart I must admit it might not have had the highest readability. I therefore created a heatmap as well, showing the same data: movies per genre and Bechel-rating.  </p>
+	<p>As much as I loved using the Nightingale rose chart I must admit it might not have had the highest readability. I, therefore, created a heatmap as well, showing the same data: movies per genre and Bechel-rating.  </p>
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz5.html" width="100%" 
 		height="1400" frameborder="0" scrolling="no"></iframe>	
 
-	<p>This visualization also seemed easier to use to compare to my personal heatmap of Bechdel-rated movies.</p>
+	<p>Finally, I wanted to compare my own movies dataset to the general trends. This visualization also seemed like the best fit for that. I am surprised by the amount of adventure movies I watch, but further than that I think I will need to add a lot more movies to my Google sheet in order to get a representative sample of my taste.</p>
 
-	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz5.html" width="100%" 
+	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz6.html" width="100%" 
 		height="1400" frameborder="0" scrolling="no"></iframe>	
 
 	<h2>Takeaways</h2>
 
 	<p>Some of my takeaways and learnings from this hackathon:</p>
 	<ol>
-		<li>Updating data continuously significantly increases your possibilities to make a project more fun and scalable. I directly saw more possibilities for building something which could be interactive and adding more value with your visualizations since they are (and remain) up-to-date.</li>
+		<li>Ingesting data continuously significantly increased the possibilities to make my project more fun, interactive, and scalable. I saw more possibilities for building something which could be interactive and adding more value with my visualizations since they are (and remain) up-to-date.</li>
 		<li>SQL > dataframes: it had been some time since I had worked in SQL but it was amazing to notice how much easier data analysis (in particular aggregation) was with SQL compared to the dataframes that I usually use.</li>
-		<li>In addition to that, With Y42 I could easily see the flow of the data from ingestion to completed tables which made it so much easier to understand what I was building and make sure my data came together in the right ways.</li>
-		<li>Though a bit stressful, the deadline of a hackathon is a fun way to get from an idea to an MVP fast. There are still many things to improve in this project, but that is fine! I worked on it for about two full days and that already got me to a fun point.</li>
+		<li>In addition to that, with Y42 I could easily see the flow of the data from ingestion to completed tables which made it much easier to understand what I was building and make sure my data came together in all the right ways.</li>
+		<li>Though a bit stressful, the deadline of a hackathon is a good way to go from idea to MVP fast. There are still many things to improve in this project, but that is fine. Having some type of pressure worked wonders to up my productivity and limit my perfectionism in a personal project.</li>
 	</ol>
 
-	Overall, I enjoyed taking part in this hackathon and getting to explore this interesting test! For those interested, you can see my final Y42 workspace below!
-				<img src="y42_workpace.png" alt="My Y42 workspace" width="500">
+	Overall, I enjoyed taking part in this hackathon and getting to explore this interesting test! 
 				
 			</div>
 		</div>
