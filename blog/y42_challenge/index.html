@@ -60,18 +60,18 @@
 
         <p> Usually, I don’t ‘do’ data engineering. As a researcher, I am mainly focused on data analysis and building machine learning models. For my personal projects, I often patch together a bunch of dataframes and visualize them as I go, without periodical updates. 
 		Overall, I often brush over the part where I structure my data pipelines more eloquently and make them reproducible and scalable. However, I was recently tempted to partake in the Y42 hackathon, which motivated me to rethink my focus on data analysis and visualization. 
-		This is my submission for said hackathon, I hope you enjoy! </p>
+		This is my submission for the said hackathon; I hope you enjoy! </p>
 				
-	<p> For this hackathon I finally delved into a feminist phenomenon that I have loved for a long time: the Bechdel test. The Bechdel test (<a href="https://en.wikipedia.org/wiki/Bechdel_test">Wikipedia</a>), introduced in a comic in a feminist newspaper in 1985, is a measure of the representation of women in film. 
+	<p> For this hackathon, I finally delved into a feminist phenomenon that I have loved for a long time: the Bechdel test. The Bechdel test (<a href="https://en.wikipedia.org/wiki/Bechdel_test">Wikipedia</a>), introduced in a comic in a feminist newspaper in 1985, is a measure of the representation of women in film. 
 		A movie passes the test if it fits the following requirements: </p>
 		<ol>
 			<li>The movie has to have at least two women in it,</li>
 			<li>who talk to each other,</li>
 			<li>about something other than a man</li>
 		</ol>
-	<p> Once you start paying attention to these requirements while watching movies (or series), you soon realize how little of them meet these ‘simple’ guidelines. This only shows how lacking the presence of women in most popular media, and fiction in particular is. 
+	<p> Once you start paying attention to these requirements while watching movies (or series), you soon realize how little of them meet these ‘simple’ guidelines. This only shows how lacking the presence of women in most popular media and fiction is. 
 		I had been wanting to do something with this test, and in particular, with the data from <a href="https://bechdeltest.com/">bechdeltest.com</a> and this hackathon allowed me to do so! My main goals were to enrich the existing dataset of movies that do (or do not) pass the test with additional knowledge 
-		such as genre, budget, and popularity. I also wanted to create visualizations that showcased trends in cinema in general and in the presence of women in movies in particular. 
+		such as genre, budget, and popularity. I also wanted to create visualizations showcasting trends in cinema in general and in the presence of women in movies. 
 	</p>
 
 				<img src="bechdeltestcartoon.jpeg" alt="The original Bechdel test cartoon" width="600">
@@ -85,15 +85,15 @@
 		<li><a href="https://bechdeltest.com/">bechdeltest.com</a> has an API that allows you to download all movies on their website, which includes the IMDb ID, title, release year, Bechdel test score (0-3, based on the number of requirements it meets). The website contains over 10K ratings. </li>
 		<li><a href="https://www.kaggle.com/datasets/adriankiezun/imdb-dataset-2023">Kaggle IMDb Dataset 2023</a> by adriankiezun, this dataset had a lot of nice additional information about movies and the IMDb ID as an identifier. It added genres (up to 3), average rating, 
 			number of votes for that rating, budget, and gross profit. A disadvantage of choosing this dataset was that it was relatively small with just over 3K entries.</li>
-		<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSelwP1DpYMyEF8fmtCl54GYymHyyg9TH0uvGB0xUbf89umZwA/viewform?usp=sf_link">My own movie watchlist</a> to add some interactivity and to leverage the possibilities of Y42 I connected the results of a Google Form to my workspace. 
-			In this case, I decided to create a form in which I (or you) could add the movies I have watched to visualize how my movie preferences compare to the highest-rated movies of IMDb.</li>
+		<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSelwP1DpYMyEF8fmtCl54GYymHyyg9TH0uvGB0xUbf89umZwA/viewform?usp=sf_link">My own movie watchlist</a> to add some interactivity and to leverage the possibilities of Y42, I connected the results of a Google Form to my workspace. 
+			In this case, I decided to create a form in which I (or you) could add the movies I have watched to visualize how my movie preferences compare to the highest-rated movies on IMDb.</li>
 	</ol>
-	<p>I used the Python cloud functions of Y42 for ingesting the Kaggle and <a href="https://bechdeltest.com/">bechdeltest.com</a> dataset and used a build-in functionality of the standard connector for the Google sheet. </p>
+	<p>I used the Python cloud functions of Y42 for ingesting the Kaggle and <a href="https://bechdeltest.com/">bechdeltest.com</a> dataset and used a built-in functionality of the standard connector for the Google sheet. </p>
 	
 	<h3>Combining datasets</h3>
 
 	<p>Once I had ingested the data from these sources, which required some tinkering, in particular, to get the Kaggle data connected, I created staging tables with the relevant columns for my project, did some reformatting to make IDs fit across tables, and included a main genre column. 
-		Once these staging tables were set up, it was easy to combine and aggregate data in additional tables using SQL. It had been a while since I had used SQL but it was surprisingly easy to restructure data and aggregate variables. I initially created three main tables: </p>
+		Once these staging tables were set up, it was easy to combine and aggregate data in additional tables using SQL. It had been a while since I had used SQL, but it was surprisingly easy to restructure data and aggregate variables. I initially created three main tables: </p>
 	<ol>
 		<li>A table with all Bechdel-rated movies and additional metadata added when possible.</li>
 		<li>A table with all movies from the Kaggle dataset and Bechdel rating added when possible.</li>
@@ -104,7 +104,7 @@
 	<h3>Scheduling and exporting</h3>
 	
 	<p>Now that I had all my tables set up I could use the scheduler. Usually, I build visualizations one-off, but using a scheduler will allow my tables to change over time as people add new ratings to <a href="https://bechdeltest.com/">bechdeltest.com</a> or as I add new entries to my form. 
-		I did not manage to export my data in an automated way, since I was struggling with the Google Sheets export functionality, so for now I sticked to exporting to csv and running my visualizations locally from there on out. 
+		I did not manage to export my data in an automated way since I was struggling with the Google Sheets export functionality. For now, I stuck to exporting to csv and running my visualizations locally from there on out. 
 		However, using the scheduler and being able to clearly visualize the lineage of my tables already enabled me to make my data processing much more reproducible and scalable. It will now be significantly easier to export the updated tables and 
 		renew my figures compared to my previous projects. For those interested, you can see my final Y42 workspace below!</p>
 			
@@ -130,7 +130,7 @@
 				
 	<h3>How does the representation of women differ per movie genre? </h3>
 				
-	<p>Finally, I had an opportunity to use a Nightingale rose chart! This chart has been on my wishlist for a while but it never seemed fitting for my projects. In this case, I used the combination of genre data from the Kaggle dataset and Bechdel ratings. I excluded some of the less popular genres.
+	<p>Finally, I had an opportunity to use a Nightingale rose chart! This chart has been on my wishlist for a while but it never seemed to fit my projects. In this case, I used the combination of genre data from the Kaggle dataset and Bechdel ratings. I excluded some of the less popular genres.
 		I noticed that Horror seems to be a very inclusive genre, though that might just be because it leaves little opportunity for romance.</p>
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz3.html" width="100%" 
@@ -152,7 +152,7 @@
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz5.html" width="100%" 
 		height="1400" frameborder="0" scrolling="no"></iframe>	
 
-	<p>Finally, I wanted to compare my own movies dataset to the general trends. This visualization also seemed like the best fit for that. I am surprised by the amount of adventure movies I watch, but further than that I think I will need to add a lot more movies to my Google sheet in order to get a representative sample of my taste.</p>
+	<p>Finally, I wanted to compare my personal movie dataset to the general trends. This visualization also seemed like the best fit for that. I am surprised by the number of adventure movies I watch, but further than that, I think I will need to add a lot more movies to my Google sheet in order to get a representative sample of my tastes.</p>
 
 	<iframe src="https://almaliezenga.com/blog/y42_challenge/viz6.html" width="100%" 
 		height="1000" frameborder="0" scrolling="no"></iframe>	
@@ -162,12 +162,12 @@
 	<p>Some of my takeaways and learnings from this hackathon:</p>
 	<ol>
 		<li>Ingesting data continuously significantly increased the possibilities to make my project more fun, interactive, and scalable. I saw more possibilities for building something which could be interactive and adding more value with my visualizations since they are (and remain) up-to-date.</li>
-		<li>SQL > dataframes: it had been some time since I had worked in SQL but it was amazing to notice how much easier data analysis (in particular aggregation) was with SQL compared to the dataframes that I usually use.</li>
+		<li>SQL > dataframes: it had been some time since I had worked in SQL, but it was amazing to notice how much easier data analysis (in particular aggregation) was with SQL compared to the dataframes that I usually use.</li>
 		<li>In addition to that, with Y42 I could easily see the flow of the data from ingestion to completed tables which made it much easier to understand what I was building and make sure my data came together in all the right ways.</li>
 		<li>Though a bit stressful, the deadline of a hackathon is a good way to go from idea to MVP fast. There are still many things to improve in this project, but that is fine. Having some type of pressure worked wonders to up my productivity and limit my perfectionism in a personal project.</li>
 	</ol>
 
-	Overall, I enjoyed taking part in this hackathon and getting to explore this interesting test! 
+	Overall, I enjoyed taking part in this hackathon and exploring this interesting test! 
 				
 			</div>
 		</div>
